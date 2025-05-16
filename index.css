@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 98%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  /* MagicBricks Red */
+  --primary: 0 90% 50%;
+  --primary-foreground: 0 0% 100%;
+  /* MagicBricks Secondary Color */
+  --secondary: 24 75% 50%;
+  --secondary-foreground: 0 0% 100%;
+  /* MagicBricks Accent Color */
+  --accent: 200 100% 40%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  --chart-1: 0 90% 50%;
+  --chart-2: 24 75% 50%;
+  --chart-3: 200 100% 40%;
+  --chart-4: 240 5.9% 10%;
+  --chart-5: 262 83.3% 57.8%;
+  --success: 142 76% 36%;
+  --neutral-light: 210 16.7% 97.6%;
+  --neutral-medium: 210 16.7% 92.2%;
+  --neutral-dark: 210 10.8% 22.7%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  /* MagicBricks Red - slightly brighter for dark mode */
+  --primary: 0 95% 60%;
+  --primary-foreground: 0 0% 100%;
+  /* MagicBricks Secondary Color */
+  --secondary: 24 80% 55%;
+  --secondary-foreground: 0 0% 100%;
+  /* MagicBricks Accent Color */
+  --accent: 200 100% 50%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-[#f8f9fa] text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins;
+  }
+}
+
+@layer components {
+  .service-card {
+    @apply transition-transform duration-300;
+  }
+  
+  .service-card:hover {
+    @apply transform -translate-y-1;
+  }
+  
+  .property-card {
+    @apply transition-shadow duration-300;
+  }
+  
+  .property-card:hover {
+    @apply shadow-lg;
+  }
+  
+  .city-dropdown {
+    @apply hidden;
+  }
+  
+  .city-selector:hover .city-dropdown {
+    @apply block;
+  }
+  
+  /* MagicBricks style city links */
+  .city-drop-heading--main {
+    @apply text-sm font-medium transition-colors cursor-pointer;
+  }
+  
+  .location-icn {
+    @apply relative uppercase font-semibold;
+  }
+  
+  .location-icn::after {
+    content: '';
+    @apply absolute -bottom-[2px] left-0 h-0.5 w-full bg-primary opacity-0 transition-opacity;
+  }
+  
+  .location-icn:hover::after {
+    @apply opacity-100;
+  }
+  
+  /* City dropdown animations */
+  @keyframes cityDropdownFadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .city-dropdown {
+    animation: cityDropdownFadeIn 0.2s ease-out forwards;
+  }
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 700;
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400 700;
+  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+}
